@@ -9,6 +9,19 @@ export const Route = createFileRoute('/')({ component: Home })
 const whatsapp = 'https://wa.me/5513982092071'
 const instagram = 'https://www.instagram.com/ferreira_atemporal'
 const serviceIcons = [Store, Boxes, Workflow, GraduationCap]
+const plates = [
+  { file: 'prato-temaki.jpg', wide: true, width: 1600, height: 1060 },
+  { file: 'prato-hamburguer.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'prato-croissants.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'prato-carne.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'prato-paris-brest.jpg', wide: false, width: 1067, height: 1600 },
+  { file: 'prato-batata.jpg', wide: true, width: 1600, height: 1066 },
+  { file: 'prato-sanduiche.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'prato-cookies.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'prato-tortinhas.jpg', wide: false, width: 1067, height: 1600 },
+  { file: 'prato-bolinhos.jpg', wide: false, width: 1066, height: 1600 },
+]
+const image = (file: string, width: number) => `/.netlify/images?url=/img/${file}&w=${width}&fm=webp&q=80`
 
 export function Brand({ light = false }: { light?: boolean }) {
   return <a className={`brand ${light ? 'brand-light' : ''}`} href="#top" aria-label="Ferreira Atemporal">
@@ -104,7 +117,7 @@ function Home() {
         <div className="hero-visual">
           <div className="portrait-backdrop" />
           <div className="portrait-frame">
-            <img src="/.netlify/images?url=/img/chef-ferreira.png&w=850&fm=webp&q=85" srcSet="/.netlify/images?url=/img/chef-ferreira.png&w=450&fm=webp&q=85 450w, /.netlify/images?url=/img/chef-ferreira.png&w=850&fm=webp&q=85 850w" sizes="(max-width: 700px) 85vw, 420px" alt={content.portraitAlt} width="632" height="873" fetchPriority="high" />
+            <img src="/.netlify/images?url=/img/chef-ferreira.jpg&w=850&fm=webp&q=85" srcSet="/.netlify/images?url=/img/chef-ferreira.jpg&w=450&fm=webp&q=85 450w, /.netlify/images?url=/img/chef-ferreira.jpg&w=850&fm=webp&q=85 850w" sizes="(max-width: 700px) 85vw, 420px" alt={content.portraitAlt} width="1066" height="1600" fetchPriority="high" />
           </div>
           <div className="chef-stamp" aria-label={content.stamp}>
             <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stamp-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs><text><textPath href="#stamp-circle" textLength="273">{content.stamp} • {content.stamp} • </textPath></text></svg>
@@ -137,11 +150,15 @@ function Home() {
             return <article className="service" key={service.title}><div className="service-top"><ServiceIcon size={31} strokeWidth={1.3} /><span>0{index + 2}</span></div><h3>{service.title}</h3><p>{service.description}</p><a href={whatsapp} target="_blank" rel="noopener noreferrer">{service.link}<ArrowUpRight size={18} /></a></article>
           })}
         </div>
+        <div className="plate-gallery">
+          <div className="journal-heading"><span className="eyebrow">{content.galleryLabel}</span><span className="handwritten">{content.galleryNote}</span></div>
+          <div className="plate-grid">{plates.map((plate, index) => <figure key={plate.file} className={plate.wide ? 'plate-wide' : undefined}><img src={image(plate.file, plate.wide ? 1000 : 600)} srcSet={plate.wide ? `${image(plate.file, 600)} 600w, ${image(plate.file, 1000)} 1000w` : `${image(plate.file, 400)} 400w, ${image(plate.file, 600)} 600w`} sizes={plate.wide ? '(max-width: 850px) 100vw, 50vw' : '(max-width: 850px) 50vw, 25vw'} alt={content.galleryAlts[index]} width={plate.width} height={plate.height} loading="lazy" /></figure>)}</div>
+        </div>
       </section>
 
       <section id="about" className="about-section">
         <div className="about-inner container">
-          <div className="about-photos"><img className="about-main-photo" src="/.netlify/images?url=/img/chef-in-action.png&w=700&fm=webp" alt={content.actionAlt} width="629" height="874" loading="lazy" /><div className="about-photo-note"><Sparkles size={22} /><span>{content.aboutPhotoNote}</span></div></div>
+          <div className="about-photos"><img className="about-main-photo" src={image('chef-gestao.jpg', 800)} alt={content.actionAlt} width="1060" height="1600" loading="lazy" /><div className="about-photo-note"><Sparkles size={22} /><span>{content.aboutPhotoNote}</span></div></div>
           <div className="about-copy"><p className="eyebrow">02 / {content.aboutLabel}</p><h2>{content.aboutTitle}<br /><em>{content.aboutItalic}</em></h2><p className="about-lead">{content.aboutLead}</p><p>{content.aboutBody}</p><blockquote>“{content.quote}”</blockquote><span className="signature">Ferreira Atemporal</span><a className="text-link light-link" href={instagram} target="_blank" rel="noopener noreferrer">{content.follow}<Instagram size={17} /></a></div>
         </div>
       </section>
@@ -149,7 +166,7 @@ function Home() {
       <section id="approach" className="approach container section-padding">
         <div className="section-heading"><p className="eyebrow">03 / {content.approachLabel}</p><div><h2>{content.approachTitle}<br /><em>{content.approachItalic}</em></h2><p className="section-intro">{content.approachIntro}</p></div></div>
         <div className="steps">{content.steps.map((step, index) => <article key={step.title}><div className="step-number">0{index + 1}<ArrowRight size={24} /></div><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
-        <div className="kitchen-journal"><div className="journal-heading"><span className="eyebrow">{content.journalLabel}</span><span className="handwritten">{content.journalNote}</span></div><div className="journal-grid"><figure><img src="/.netlify/images?url=/img/kitchen-team.png&w=700&fm=webp" alt={content.teamAlt} width="591" height="845" loading="lazy" /><figcaption>{content.journalCaptions[0]}<span>01</span></figcaption></figure><figure><img src="/.netlify/images?url=/img/kitchen-collaboration.png&w=700&fm=webp" alt={content.collaborationAlt} width="595" height="854" loading="lazy" /><figcaption>{content.journalCaptions[1]}<span>02</span></figcaption></figure><div className="journal-message"><Sparkles size={40} strokeWidth={1} /><p>{content.journalMessage}</p><span>— Ferreira</span></div></div></div>
+        <div className="kitchen-journal"><div className="journal-heading"><span className="eyebrow">{content.journalLabel}</span><span className="handwritten">{content.journalNote}</span></div><div className="journal-grid"><figure><img src={image('chef-orientando.jpg', 700)} alt={content.teamAlt} width="1060" height="1600" loading="lazy" /><figcaption>{content.journalCaptions[0]}<span>01</span></figcaption></figure><figure><img src={image('treinamento-equipe.jpg', 900)} alt={content.collaborationAlt} width="1600" height="1060" loading="lazy" /><figcaption>{content.journalCaptions[1]}<span>02</span></figcaption></figure><div className="journal-message"><Sparkles size={40} strokeWidth={1} /><p>{content.journalMessage}</p><span>— Ferreira</span></div></div></div>
       </section>
 
       <section className="faq container"><div><p className="eyebrow">{content.faqLabel}</p><h2>{content.faqTitle}</h2></div><div className="faq-list">{content.faq.map(item => <details key={item.question}><summary>{item.question}<span className="faq-plus" aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
