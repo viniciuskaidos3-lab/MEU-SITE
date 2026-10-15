@@ -326,3 +326,5 @@ html:has(.lightbox[open]){overflow:hidden}
 .lightbox-next{right:22px}
 @keyframes lightbox-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:700px){.gallery-highlight{font-size:24px}.lightbox{padding:64px 12px 88px}.lightbox-figure img{max-height:calc(100dvh - 200px)}.lightbox-prev,.lightbox-next{top:auto;bottom:20px;transform:none}.lightbox-prev{left:calc(50% - 60px)}.lightbox-next{right:calc(50% - 60px)}}
+/* Celular: botão de conversa acima do selo da Netlify (fixo no canto inferior) */
+@media(max-width:700px){.concierge{bottom:78px}.chat-panel{height:min(570px,calc(100dvh - 170px))}.footer{padding-bottom:165px}}
