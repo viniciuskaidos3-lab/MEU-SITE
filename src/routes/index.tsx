@@ -152,7 +152,7 @@ function Home() {
               <div className="service-top"><Store size={34} strokeWidth={1.3} /><span className="service-badge">{content.opening.badge}</span></div>
               <h3>{content.opening.title}</h3>
               <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.opening.link}<ArrowUpRight size={18} /></a>
-              <figure className="service-photo"><img src={image('prato-gratinado.jpg', 700)} srcSet={`${image('prato-gratinado.jpg', 400)} 400w, ${image('prato-gratinado.jpg', 700)} 700w`} sizes="(max-width: 850px) 85vw, 400px" alt={content.servicePhotoAlts[1]} width="1200" height="1800" loading="lazy" decoding="async" /></figure>
+              <figure className="service-photo"><img src={image('sanduiche-abertura.jpg', 700)} srcSet={`${image('sanduiche-abertura.jpg', 400)} 400w, ${image('sanduiche-abertura.jpg', 700)} 700w`} sizes="(max-width: 850px) 85vw, 400px" alt={content.servicePhotoAlts[1]} width="1200" height="1800" loading="lazy" decoding="async" /></figure>
             </div>
             <div className="service-featured-body">
               <p className="service-lead">{content.opening.lead}</p>
@@ -186,7 +186,7 @@ function Home() {
 
       <div className="photo-interlude container">
         <figure><img src={image('croquetes-dourados.jpg', 1100)} srcSet={`${image('croquetes-dourados.jpg', 600)} 600w, ${image('croquetes-dourados.jpg', 1100)} 1100w`} sizes="(max-width: 700px) 90vw, 60vw" alt={content.interludeAlts[0]} width="1800" height="1212" loading="lazy" decoding="async" /></figure>
-        <figure><img src={image('pao-recheado.jpg', 700)} srcSet={`${image('pao-recheado.jpg', 400)} 400w, ${image('pao-recheado.jpg', 700)} 700w`} sizes="(max-width: 700px) 65vw, 30vw" alt={content.interludeAlts[1]} width="1038" height="1299" loading="lazy" decoding="async" /></figure>
+        <figure><img src={image('doce-recheado.jpg', 700)} srcSet={`${image('doce-recheado.jpg', 400)} 400w, ${image('doce-recheado.jpg', 700)} 700w`} sizes="(max-width: 700px) 65vw, 30vw" alt={content.interludeAlts[1]} width="1200" height="1800" loading="lazy" decoding="async" /></figure>
       </div>
 
       <section className="faq container"><div><p className="eyebrow">{content.faqLabel}</p><h2>{content.faqTitle}</h2></div><div className="faq-list">{content.faq.map(item => <details key={item.question}><summary>{item.question}<span className="faq-plus" aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
