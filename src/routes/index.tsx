@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { ArrowDown, ArrowRight, ArrowUpRight, Boxes, Check, ChefHat, ClipboardList, GraduationCap, Instagram, Mail, Menu, Moon, MoveUpRight, Sparkles, Store, Sun, Workflow, X } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUpRight, Boxes, Check, ClipboardList, GraduationCap, Instagram, Mail, Menu, Moon, MoveUpRight, Sparkles, Store, Sun, Workflow, X } from 'lucide-react'
 import { copy, type Language } from '@/data/copy'
 import { Concierge } from '@/components/Concierge'
 
@@ -8,6 +8,7 @@ export const Route = createFileRoute('/')({ component: Home })
 
 const whatsapp = 'https://wa.me/5513982092071'
 const instagram = 'https://www.instagram.com/ferreira_atemporal'
+const brandName = 'V. Ferreira Consultoria Gastronômica'
 const serviceIcons = [Store, Boxes, Workflow, GraduationCap]
 const plates = [
   { file: 'prato-temaki.jpg', wide: true, width: 1600, height: 1060 },
@@ -24,9 +25,8 @@ const plates = [
 const image = (file: string, width: number) => `/.netlify/images?url=/img/${file}&w=${width}&fm=webp&q=80`
 
 export function Brand({ light = false }: { light?: boolean }) {
-  return <a className={`brand ${light ? 'brand-light' : ''}`} href="#top" aria-label="Ferreira Atemporal">
-    <span className="brand-symbol" aria-hidden="true"><ChefHat strokeWidth={1.25} /><span>f.</span></span>
-    <span className="brand-words">ferreira<span>ATEMPORAL</span></span>
+  return <a className={`brand ${light ? 'brand-light' : ''}`} href="#top" aria-label={brandName}>
+    <span className="brand-logo" aria-hidden="true" />
   </a>
 }
 
@@ -109,7 +109,7 @@ function Home() {
           <p className="hero-mantra">{content.mantra}</p>
           <p className="hero-description">{content.heroDescription}</p>
           <div className="hero-actions">
-            <a className="button button-yellow" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.heroCta}<ArrowUpRight size={20} /></a>
+            <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.heroCta}<ArrowUpRight size={20} /></a>
             <a className="text-link" href="#about">{content.meet}<ArrowDown size={16} /></a>
           </div>
           <div className="hero-note"><span className="availability-dot" />{content.availability}</div>
@@ -138,7 +138,7 @@ function Home() {
             <div className="service-featured-head">
               <div className="service-top"><ClipboardList size={34} strokeWidth={1.3} /><span className="service-badge">{content.starter.badge}</span></div>
               <h3>{content.starter.title}</h3>
-              <a className="button button-yellow" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.starter.link}<ArrowUpRight size={18} /></a>
+              <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.starter.link}<ArrowUpRight size={18} /></a>
             </div>
             <div className="service-featured-body">
               <p>{content.starter.description}</p>
@@ -159,7 +159,7 @@ function Home() {
       <section id="about" className="about-section">
         <div className="about-inner container">
           <div className="about-photos"><img className="about-main-photo" src={image('chef-gestao.jpg', 800)} alt={content.actionAlt} width="1060" height="1600" loading="lazy" /><div className="about-photo-note"><Sparkles size={22} /><span>{content.aboutPhotoNote}</span></div></div>
-          <div className="about-copy"><p className="eyebrow">02 / {content.aboutLabel}</p><h2>{content.aboutTitle}<br /><em>{content.aboutItalic}</em></h2><p className="about-lead">{content.aboutLead}</p><p>{content.aboutBody}</p><blockquote>“{content.quote}”</blockquote><span className="signature">Ferreira Atemporal</span><a className="text-link light-link" href={instagram} target="_blank" rel="noopener noreferrer">{content.follow}<Instagram size={17} /></a></div>
+          <div className="about-copy"><p className="eyebrow">02 / {content.aboutLabel}</p><h2>{content.aboutTitle}<br /><em>{content.aboutItalic}</em></h2><p className="about-lead">{content.aboutLead}</p><p>{content.aboutBody}</p><blockquote>“{content.quote}”</blockquote><span className="signature">V. Ferreira</span><a className="text-link light-link" href={instagram} target="_blank" rel="noopener noreferrer">{content.follow}<Instagram size={17} /></a></div>
         </div>
       </section>
 
@@ -174,7 +174,7 @@ function Home() {
       <section id="contact" className="contact-section"><div className="container contact-inner"><div><p className="eyebrow">{content.contactLabel}</p><h2>{content.contactTitle}<br /><em>{content.contactItalic}</em></h2><p>{content.contactBody}</p><div className="contact-actions"><a className="button button-brown" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.contactCta}<ArrowUpRight size={21} /></a><a className="button button-brown" href="mailto:viniciuskaidos3@gmail.com">{content.contactEmail}<Mail size={21} aria-hidden="true" /></a></div></div><a className="contact-arrow" href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label={content.contactCta}><MoveUpRight strokeWidth={0.7} /></a><div className="contact-links"><a href={instagram} target="_blank" rel="noopener noreferrer"><Instagram size={18} />@ferreira_atemporal<ArrowUpRight size={16} /></a><a href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp<span>+55 (13) 98209-2071</span><ArrowUpRight size={16} /></a></div></div></section>
     </main>
 
-    <footer className="footer"><div className="container footer-inner"><Brand light /><p className="footer-details"><span>{content.footerNote}</span><span>{content.footerLocation}</span><span>{content.footerCnpj}</span></p><span>© {new Date().getFullYear()} Ferreira Atemporal</span><a href="#top">{content.backToTop}<ArrowUpRight size={15} /></a></div></footer>
+    <footer className="footer"><div className="container footer-inner"><Brand light /><p className="footer-details"><span>{content.footerNote}</span><span>{content.footerLocation}</span><span>{content.footerCnpj}</span></p><span>© {new Date().getFullYear()} {brandName}</span><a href="#top">{content.backToTop}<ArrowUpRight size={15} /></a></div></footer>
     <Concierge language={language} />
   </div>
 }

@@ -1,5 +1,8 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { copy } from '@/data/copy'
+import '@fontsource-variable/bodoni-moda/opsz.css'
+import '@fontsource-variable/bodoni-moda/opsz-italic.css'
+import '@fontsource-variable/jost'
 import '../styles.css'
 
 const siteName = copy.pt.pageTitle
@@ -9,8 +12,7 @@ export const Route = createRootRoute({
   head: () => ({
     links: [
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     ],
     meta: [
       {
@@ -26,6 +28,10 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content: siteDescription,
+      },
+      {
+        name: 'theme-color',
+        content: '#332f2b',
       },
       {
         property: 'og:title',
@@ -46,7 +52,7 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootDocument,
-  notFoundComponent: () => <main className="container section-padding"><h1>Not on the menu.</h1><p>This page could not be found.</p><a className="button button-yellow" href="/">Back to Ferreira Atemporal</a></main>,
+  notFoundComponent: () => <main className="container section-padding"><h1>Not on the menu.</h1><p>This page could not be found.</p><a className="button button-accent" href="/">Back to V. Ferreira</a></main>,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {

@@ -4,7 +4,7 @@ export const copy = {
   en: {
     darkMode: 'Dark mode', switchToLight: 'Switch to light mode', switchToDark: 'Switch to dark mode',
     contactEmail: 'Mail me',
-    pageTitle: 'Ferreira Atemporal — Good food. Great business.',
+    pageTitle: 'V. Ferreira Consultoria Gastronômica — Good food. Great business.',
     pageDescription: 'Chef-led food service consulting from Registro, São Paulo: recipe cards, menu engineering, menus for new restaurants, inventory systems, goods flow, and hands-on staff training.',
     footerLocation: 'From Registro, São Paulo',
     footerCnpj: 'CNPJ: 62.532.705/0001-07',
@@ -59,7 +59,7 @@ export const copy = {
   pt: {
     darkMode: 'Modo escuro', switchToLight: 'Ativar modo claro', switchToDark: 'Ativar modo escuro',
     contactEmail: 'Envie um e-mail',
-    pageTitle: 'Ferreira Atemporal — Boa comida. Grandes negócios.',
+    pageTitle: 'V. Ferreira Consultoria Gastronômica — Boa comida. Grandes negócios.',
     pageDescription: 'Consultoria gastronômica conduzida por um chef, em Registro, SP: fichas técnicas, engenharia de cardápio, cardápio para abertura de restaurantes, estoque, fluxo de mercadorias e treinamentos operacionais.',
     footerLocation: 'De Registro, São Paulo',
     footerCnpj: 'CNPJ: 62.532.705/0001-07',

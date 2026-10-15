@@ -1,4 +1,4 @@
-# Ferreira Atemporal
+# V. Ferreira Consultoria Gastronômica
 
 ## Architecture
 This is a bilingual chef and restaurant-management consulting landing page built with TanStack Start, React 19, TypeScript, and Vite. Netlify's Vite adapter handles deployment. It has no application backend, authentication, or stored user data.
@@ -8,8 +8,10 @@ This is a bilingual chef and restaurant-management consulting landing page built
 - `src/routes/__root.tsx`: document shell, social metadata, favicon, and not-found page.
 - `src/data/copy.ts`: English and Brazilian Portuguese copy; all visible landing-page and concierge text belongs here.
 - `src/components/Concierge.tsx`: floating speed dial and lazy-mounted Typebot iframe with loading state and external fallback.
-- `src/styles.css`: warm cream, brown, and mustard palette; responsive editorial layouts; reduced-motion support.
-- `public/img/`: authentic chef photographs provided by the user. Serve these through Netlify Image CDN, not raw full-resolution assets.
+- `src/styles.css`: V. Ferreira brand palette as CSS variables (kit: `#c07020`, `#966432`, `#ea7600`, `#6b5036`, `#41362b`, `#332f2b`; cream `#f0e4d0`), light and dark themes, responsive editorial layouts, reduced-motion support.
+- `public/logo.svg`: the user's logo (V. FERREIRA / CONSULTORIA GASTRONÔMICA), vectorised from the supplied artwork. It is applied as a CSS mask (`.brand-logo`) so it takes the current text colour in both themes. Do not redraw or restyle it. `public/favicon.svg`, `favicon.ico` and `apple-touch-icon.png` use the "V." monogram.
+- Typography: Bodoni Moda (headings, echoing the logo's high-contrast serif; optical size is capped per heading level for legible hairlines) and Jost (body and labels, echoing the logo's geometric tagline), self-hosted through `@fontsource-variable` packages imported in `__root.tsx`.
+- `public/img/`: authentic chef and dish photographs provided by the user. Serve these through Netlify Image CDN, not raw full-resolution assets. Do not use photos that show client names or third-party brand marks.
 - `netlify.toml` and `vite.config.ts`: framework/deployment configuration.
 
 ## Conventions
