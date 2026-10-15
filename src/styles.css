@@ -253,14 +253,47 @@ details>p{font-size:13px;line-height:1.9;color:var(--muted);padding-right:30px;p
 .language-switch button{white-space:nowrap}
 @media(max-width:700px){.brand-logo{width:156px}.portrait-caption{bottom:-38px}.hero-bottom{margin-top:66px}}
 @media(max-width:370px){.brand-logo{width:128px}}
-/* Leitura: corpo de texto entre 13 e 14px em todas as telas */
-.hero-description,.section-intro,.service p,.steps p,.about-copy>p:not(.eyebrow):not(.about-lead),details>p,summary,.faq-list summary,.contact-inner p:not(.eyebrow),.service-featured-body>p,.service-deliverables li{font-size:14px}
-.hero-mantra,.about-lead{font-size:15px}
-.about-copy>p:not(.eyebrow):not(.about-lead){margin-bottom:14px}
-.text-link,.service>a,.button,.header-contact,.contact-inner .button,.contact-links,.navigation,.dial-options>a>span:first-child,.dial-options>button>span:first-child,.chat-header h2{font-size:13px}
-.hero-note,.hero-bottom p,figcaption,.journal-grid figcaption,.footer p,.footer-inner>span,.footer-inner>a:last-child,.chat-hint p,.chat-header p,.chat-fallback,.chat-loading,.language-switch button{font-size:12px}
-.eyebrow,.section-heading>.eyebrow,.hero-copy>.eyebrow,.about-copy>.eyebrow,.journal-heading .eyebrow,.faq .eyebrow,.contact-inner .eyebrow,.service-top>span,.photo-label,.chat-hint>span{font-size:11px}
-.ticker>div>span{font-size:12px}
-@media(max-width:1100px){.footer p{max-width:220px}}
-@media(max-width:700px){.navigation>a{font-size:15px}.ticker>div>span{font-size:11px}.hero-description{max-width:none}}
-@media(max-width:370px){.hero-actions .button{font-size:12px}.hero-actions .text-link{font-size:12px}}
+/* Leitura ampliada, conforme solicitado, em todas as telas */
+:root{--body-size:17px;--support-size:14px;--label-size:12px}
+body{font-size:var(--body-size)}
+.hero-description,.section-intro,.service p,.steps p,.about-copy>p:not(.eyebrow):not(.about-lead),details>p,summary,.faq-list summary,.contact-inner p:not(.eyebrow),.service-featured-body>p,.service-deliverables li{font-size:var(--body-size);line-height:1.75}
+.hero-mantra,.about-lead,.service-featured-dark .service-featured-body>.service-lead{font-size:18px;line-height:1.65}
+.hero-description{max-width:480px}
+.section-intro{max-width:540px}
+.about-copy>p:not(.eyebrow):not(.about-lead){margin-bottom:18px}
+.text-link,.service>a,.button,.header-contact,.contact-inner .button,.contact-links,.navigation,.dial-options>a>span:first-child,.dial-options>button>span:first-child,.chat-header h2{font-size:var(--support-size)}
+.hero-note,.hero-bottom p,figcaption,.journal-grid figcaption,.footer p,.footer-inner>span,.footer-inner>a:last-child,.chat-hint p,.chat-header p,.chat-fallback,.chat-loading,.language-switch button,figcaption>span{font-size:var(--support-size);line-height:1.6}
+.eyebrow,.section-heading>.eyebrow,.hero-copy>.eyebrow,.about-copy>.eyebrow,.journal-heading .eyebrow,.faq .eyebrow,.contact-inner .eyebrow,.service-top>span,.photo-label,.chat-hint>span{font-size:var(--label-size)}
+.ticker>div>span{font-size:var(--support-size)}
+.service-featured-head{display:flex;flex-direction:column;align-items:flex-start}
+.service-photo{width:100%;margin-top:30px;overflow:hidden;border-radius:2px}
+.service-photo img{height:240px;object-position:center 45%}
+.photo-interlude{display:grid;grid-template-columns:1.65fr 1fr;gap:28px;align-items:center;margin-bottom:90px}
+.photo-interlude figure{overflow:hidden;border-radius:2px}
+.photo-interlude img{height:370px}
+.photo-interlude figure:last-child{margin-top:70px}
+.photo-interlude figure:last-child img{height:310px}
+.hero-actions{flex-wrap:wrap}
+.hero-note{align-items:flex-start}
+.availability-dot{flex-shrink:0;margin-top:9px}
+@media(max-width:1100px){.footer p{max-width:250px}.topbar{gap:16px}.navigation{gap:18px}.header-actions{gap:14px}}
+@media(max-width:850px){.service-featured-head{display:contents}.service-featured .service-photo{order:2;margin-top:8px}.service-featured .button{order:3}.service-photo img{height:280px}.photo-interlude{gap:20px;margin-bottom:70px}.photo-interlude img{height:310px}.photo-interlude figure:last-child img{height:260px}.header-contact{display:none}}
+@media(max-width:700px){.navigation>a{font-size:16px}.hero-description{max-width:none}.hero-actions{gap:16px}.hero-bottom p{max-width:none}.service-photo img{height:230px}.photo-interlude{grid-template-columns:1fr;gap:18px;margin-bottom:60px}.photo-interlude img{height:260px}.photo-interlude figure:last-child{margin-top:0;width:72%;justify-self:end}.photo-interlude figure:last-child img{height:230px}.contact-inner p:not(.eyebrow){max-width:380px}.contact-links{width:100%}.footer-inner{grid-template-columns:1fr}.footer-inner>span{line-height:1.6}.chat-hint{max-width:230px}.hero-copy>.eyebrow{letter-spacing:1px}.journal-grid figcaption{gap:6px}.chat-hint>span{letter-spacing:1.5px}}
+@media(max-width:370px){.hero-actions .button,.hero-actions .text-link{font-size:var(--support-size)}.language-switch button{font-size:12px}.header-actions{gap:4px}.topbar{gap:6px}.contact-links a{gap:7px;flex-wrap:wrap}.chat-hint{max-width:215px}}
+
+/* Logo ampliada e legenda do retrato com espaço para a nova frase */
+.brand-logo{width:300px}
+.footer .brand-logo{width:300px}
+.topbar{min-height:130px;height:auto;padding-top:24px;padding-bottom:24px}
+.navigation{margin-left:0;gap:24px}
+.portrait-caption{position:static;display:block;transform:none;max-width:100%;margin:22px 0 0;padding:0 8px;font-family:var(--hand);font-style:italic;font-size:23px;line-height:1.4;color:var(--brown)}
+.photo-label{margin-top:12px;padding-top:0}
+.hero-visual{align-self:start}
+@media(max-width:1100px){.brand-logo{width:270px}.header-contact{display:none}.navigation{gap:16px}.header-actions{gap:12px}.portrait-caption{font-size:21px}}
+@media(max-width:850px) and (min-width:701px){.topbar{flex-wrap:wrap;gap:18px}.topbar .brand{margin-right:auto}.navigation{order:3;width:100%;justify-content:center}.hero-visual{align-self:center}}
+@media(max-width:700px){.topbar{display:grid;grid-template-columns:1fr;justify-items:center;gap:20px;padding-top:25px;padding-bottom:18px}.topbar .brand-logo{width:280px;max-width:calc(100vw - 48px)}.header-actions{width:100%;justify-content:center;gap:25px}.navigation{top:100%;text-align:center}.portrait-caption{font-size:22px;margin-top:24px;padding:0}.hero-visual{align-self:center}.hero-bottom{margin-top:32px}.footer .brand-logo{width:280px;max-width:calc(100vw - 48px)}}
+@media(max-width:370px){.topbar .brand-logo,.footer .brand-logo{width:260px}.header-actions{gap:22px}.language-switch button{font-size:14px}}
+
+.chef-stamp{top:300px;bottom:auto}
+@media(max-width:1100px){.chef-stamp{top:270px}}
+@media(max-width:850px){.chef-stamp{top:250px}}
