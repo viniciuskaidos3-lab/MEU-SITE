@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({ component: Home })
 const whatsapp = 'https://wa.me/5513982092071'
 const instagram = 'https://www.instagram.com/ferreira_atemporal'
 const brandName = 'V. Ferreira Consultoria Gastronômica'
-const serviceIcons = [Store, Boxes, Workflow, GraduationCap]
+const serviceIcons = [Boxes, Workflow, GraduationCap]
 const plates = [
   { file: 'prato-temaki.jpg', wide: true, width: 1600, height: 1060 },
   { file: 'prato-hamburguer.jpg', wide: false, width: 1066, height: 1600 },
@@ -107,7 +107,7 @@ function Home() {
           <p className="eyebrow"><span className="tiny-dot" />{content.eyebrow}</p>
           <h1 id="hero-title">{content.heroFirst}<br /><em>{content.heroSecond}</em></h1>
           <p className="hero-mantra">{content.mantra}</p>
-          <p className="hero-description">{content.heroDescription}</p>
+          <div className="hero-description">{content.heroDescription.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
           <div className="hero-actions">
             <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.heroCta}<ArrowUpRight size={20} /></a>
             <a className="text-link" href="#about">{content.meet}<ArrowDown size={16} /></a>
@@ -145,9 +145,21 @@ function Home() {
               <ul className="service-deliverables">{content.starter.deliverables.map(item => <li key={item}><Check size={16} strokeWidth={2} aria-hidden="true" />{item}</li>)}</ul>
             </div>
           </article>
+          <article className="service service-featured service-featured-dark">
+            <div className="service-featured-head">
+              <div className="service-top"><Store size={34} strokeWidth={1.3} /><span className="service-badge">{content.opening.badge}</span></div>
+              <h3>{content.opening.title}</h3>
+              <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.opening.link}<ArrowUpRight size={18} /></a>
+            </div>
+            <div className="service-featured-body">
+              <p className="service-lead">{content.opening.lead}</p>
+              {content.opening.description.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+              <ul className="service-deliverables">{content.opening.deliverables.map(item => <li key={item}><Check size={16} strokeWidth={2} aria-hidden="true" />{item}</li>)}</ul>
+            </div>
+          </article>
           {content.services.map((service, index) => {
             const ServiceIcon = serviceIcons[index]
-            return <article className="service" key={service.title}><div className="service-top"><ServiceIcon size={31} strokeWidth={1.3} /><span>0{index + 2}</span></div><h3>{service.title}</h3><p>{service.description}</p><a href={whatsapp} target="_blank" rel="noopener noreferrer">{service.link}<ArrowUpRight size={18} /></a></article>
+            return <article className="service service-item" key={service.title}><div className="service-top"><ServiceIcon size={31} strokeWidth={1.3} /><span>0{index + 3}</span></div><h3>{service.title}</h3><p>{service.description}</p><a href={whatsapp} target="_blank" rel="noopener noreferrer">{service.link}<ArrowUpRight size={18} /></a></article>
           })}
         </div>
         <div className="plate-gallery">
@@ -159,14 +171,14 @@ function Home() {
       <section id="about" className="about-section">
         <div className="about-inner container">
           <div className="about-photos"><img className="about-main-photo" src={image('chef-gestao.jpg', 800)} alt={content.actionAlt} width="1060" height="1600" loading="lazy" /><div className="about-photo-note"><Sparkles size={22} /><span>{content.aboutPhotoNote}</span></div></div>
-          <div className="about-copy"><p className="eyebrow">02 / {content.aboutLabel}</p><h2>{content.aboutTitle}<br /><em>{content.aboutItalic}</em></h2><p className="about-lead">{content.aboutLead}</p><p>{content.aboutBody}</p><blockquote>“{content.quote}”</blockquote><span className="signature">V. Ferreira</span><a className="text-link light-link" href={instagram} target="_blank" rel="noopener noreferrer">{content.follow}<Instagram size={17} /></a></div>
+          <div className="about-copy"><p className="eyebrow">02 / {content.aboutLabel}</p><h2>{content.aboutTitle}<br /><em>{content.aboutItalic}</em></h2><p className="about-lead">{content.aboutLead}</p>{content.aboutBody.map(paragraph => <p key={paragraph}>{paragraph}</p>)}<blockquote>“{content.quote}”</blockquote><span className="signature">V. Ferreira</span><a className="text-link light-link" href={instagram} target="_blank" rel="noopener noreferrer">{content.follow}<Instagram size={17} /></a></div>
         </div>
       </section>
 
       <section id="approach" className="approach container section-padding">
         <div className="section-heading"><p className="eyebrow">03 / {content.approachLabel}</p><div><h2>{content.approachTitle}<br /><em>{content.approachItalic}</em></h2><p className="section-intro">{content.approachIntro}</p></div></div>
         <div className="steps">{content.steps.map((step, index) => <article key={step.title}><div className="step-number">0{index + 1}<ArrowRight size={24} /></div><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
-        <div className="kitchen-journal"><div className="journal-heading"><span className="eyebrow">{content.journalLabel}</span><span className="handwritten">{content.journalNote}</span></div><div className="journal-grid"><figure><img src={image('chef-orientando.jpg', 700)} alt={content.teamAlt} width="1060" height="1600" loading="lazy" /><figcaption>{content.journalCaptions[0]}<span>01</span></figcaption></figure><figure><img src={image('treinamento-equipe.jpg', 900)} alt={content.collaborationAlt} width="1600" height="1060" loading="lazy" /><figcaption>{content.journalCaptions[1]}<span>02</span></figcaption></figure><div className="journal-message"><Sparkles size={40} strokeWidth={1} /><p>{content.journalMessage}</p><span>— Ferreira</span></div></div></div>
+        <div className="kitchen-journal"><div className="journal-heading"><span className="eyebrow">{content.journalLabel}</span><span className="handwritten">{content.journalNote}</span></div><div className="journal-grid"><figure><img src={image('chef-orientando.jpg', 700)} alt={content.teamAlt} width="1060" height="1600" loading="lazy" /><figcaption>{content.journalCaptions[0]}<span>01</span></figcaption></figure><figure><img src={image('treinamento-equipe.jpg', 900)} alt={content.collaborationAlt} width="1600" height="1060" loading="lazy" /><figcaption>{content.journalCaptions[1]}<span>02</span></figcaption></figure><div className="journal-message"><Sparkles size={40} strokeWidth={1} /><p>{content.journalMessage}</p><span>Ferreira</span></div></div></div>
       </section>
 
       <section className="faq container"><div><p className="eyebrow">{content.faqLabel}</p><h2>{content.faqTitle}</h2></div><div className="faq-list">{content.faq.map(item => <details key={item.question}><summary>{item.question}<span className="faq-plus" aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>

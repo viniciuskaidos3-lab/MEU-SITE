@@ -15,6 +15,8 @@ This is a bilingual chef and restaurant-management consulting landing page built
 - `netlify.toml` and `vite.config.ts`: framework/deployment configuration.
 
 ## Conventions
+Never use em dashes (—) or en dashes (–) in visible copy, in either language: the user reads them as a sign of AI-written text. Use commas, colons, periods or parentheses instead. Body text stays between 13px and 14px on every screen size. Copy supplied by the user keeps its wording and emphasis (words in capitals); only fix spelling, accents and punctuation.
+
 Use functional React components, named state variables, strict TypeScript, and semantic elements. Use CSS variables for colors and typography. Follow the existing custom CSS class naming style. Keep EN and PT-BR copy in sync, including accessible labels. Brazilian Portuguese is the server-rendered default; on mount the client switches to the visitor's browser language (`navigator.languages`, Portuguese or English, PT-BR otherwise) and follows later `languagechange` events, mirroring the system-theme pattern. Selecting a language overrides that and updates document language and title without navigation. Language choice is transient, not persisted.
 
 ## Important decisions
