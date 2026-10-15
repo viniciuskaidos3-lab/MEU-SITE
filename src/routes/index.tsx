@@ -21,6 +21,8 @@ const plates = [
   { file: 'prato-cookies.jpg', wide: false, width: 1066, height: 1600 },
   { file: 'prato-tortinhas.jpg', wide: false, width: 1067, height: 1600 },
   { file: 'prato-bolinhos.jpg', wide: false, width: 1066, height: 1600 },
+  { file: 'sobremesa-chocolate.jpg', wide: false, width: 1200, height: 1800 },
+  { file: 'prato-dourado.jpg', wide: false, width: 1192, height: 1800 },
 ]
 const image = (file: string, width: number) => `/.netlify/images?url=/img/${file}&w=${width}&fm=webp&q=80`
 
@@ -112,7 +114,6 @@ function Home() {
             <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.heroCta}<ArrowUpRight size={20} /></a>
             <a className="text-link" href="#about">{content.meet}<ArrowDown size={16} /></a>
           </div>
-          <div className="hero-note"><span className="availability-dot" />{content.availability}</div>
         </div>
         <div className="hero-visual">
           <div className="portrait-backdrop" />
@@ -123,7 +124,7 @@ function Home() {
             <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="stamp-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs><text><textPath href="#stamp-circle" textLength="273">{content.stamp} • {content.stamp} • </textPath></text></svg>
             <Sparkles size={35} strokeWidth={1.2} />
           </div>
-          <div className="portrait-caption"><span>{content.signature}</span><svg width="62" height="39" viewBox="0 0 62 39" aria-hidden="true"><path d="M3 6c25-10 38 0 36 19M28 19l11 12 10-14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg></div>
+          <p className="portrait-caption">{content.signature}</p>
           <span className="photo-label">FERREIRA, {content.chefLabel}</span>
         </div>
         <div className="hero-bottom"><p>{content.heroBottom}</p><a href="#expertise" aria-label={content.expertiseTitle}><ArrowDown size={18} /></a></div>
@@ -139,6 +140,7 @@ function Home() {
               <div className="service-top"><ClipboardList size={34} strokeWidth={1.3} /><span className="service-badge">{content.starter.badge}</span></div>
               <h3>{content.starter.title}</h3>
               <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.starter.link}<ArrowUpRight size={18} /></a>
+              <figure className="service-photo"><img src={image('pao-artesanal.jpg', 700)} srcSet={`${image('pao-artesanal.jpg', 400)} 400w, ${image('pao-artesanal.jpg', 700)} 700w`} sizes="(max-width: 850px) 85vw, 400px" alt={content.servicePhotoAlts[0]} width="1200" height="1800" loading="lazy" decoding="async" /></figure>
             </div>
             <div className="service-featured-body">
               <p>{content.starter.description}</p>
@@ -150,6 +152,7 @@ function Home() {
               <div className="service-top"><Store size={34} strokeWidth={1.3} /><span className="service-badge">{content.opening.badge}</span></div>
               <h3>{content.opening.title}</h3>
               <a className="button button-accent" href={whatsapp} target="_blank" rel="noopener noreferrer">{content.opening.link}<ArrowUpRight size={18} /></a>
+              <figure className="service-photo"><img src={image('prato-gratinado.jpg', 700)} srcSet={`${image('prato-gratinado.jpg', 400)} 400w, ${image('prato-gratinado.jpg', 700)} 700w`} sizes="(max-width: 850px) 85vw, 400px" alt={content.servicePhotoAlts[1]} width="1200" height="1800" loading="lazy" decoding="async" /></figure>
             </div>
             <div className="service-featured-body">
               <p className="service-lead">{content.opening.lead}</p>
@@ -180,6 +183,11 @@ function Home() {
         <div className="steps">{content.steps.map((step, index) => <article key={step.title}><div className="step-number">0{index + 1}<ArrowRight size={24} /></div><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
         <div className="kitchen-journal"><div className="journal-heading"><span className="eyebrow">{content.journalLabel}</span><span className="handwritten">{content.journalNote}</span></div><div className="journal-grid"><figure><img src={image('chef-orientando.jpg', 700)} alt={content.teamAlt} width="1060" height="1600" loading="lazy" /><figcaption>{content.journalCaptions[0]}<span>01</span></figcaption></figure><figure><img src={image('treinamento-equipe.jpg', 900)} alt={content.collaborationAlt} width="1600" height="1060" loading="lazy" /><figcaption>{content.journalCaptions[1]}<span>02</span></figcaption></figure><div className="journal-message"><Sparkles size={40} strokeWidth={1} /><p>{content.journalMessage}</p><span>Ferreira</span></div></div></div>
       </section>
+
+      <div className="photo-interlude container">
+        <figure><img src={image('croquetes-dourados.jpg', 1100)} srcSet={`${image('croquetes-dourados.jpg', 600)} 600w, ${image('croquetes-dourados.jpg', 1100)} 1100w`} sizes="(max-width: 700px) 90vw, 60vw" alt={content.interludeAlts[0]} width="1800" height="1212" loading="lazy" decoding="async" /></figure>
+        <figure><img src={image('pao-recheado.jpg', 700)} srcSet={`${image('pao-recheado.jpg', 400)} 400w, ${image('pao-recheado.jpg', 700)} 700w`} sizes="(max-width: 700px) 65vw, 30vw" alt={content.interludeAlts[1]} width="1038" height="1299" loading="lazy" decoding="async" /></figure>
+      </div>
 
       <section className="faq container"><div><p className="eyebrow">{content.faqLabel}</p><h2>{content.faqTitle}</h2></div><div className="faq-list">{content.faq.map(item => <details key={item.question}><summary>{item.question}<span className="faq-plus" aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
 
