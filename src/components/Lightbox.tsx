@@ -62,7 +62,7 @@ export function Lightbox({ photos, index, labels, onClose, onNavigate }: {
     {photo && index !== null && <>
       <figure className="lightbox-figure" onTouchStart={event => { touchStartX.current = event.touches[0].clientX }} onTouchEnd={handleTouchEnd}>
         <img key={photo.file} src={fullImage(photo.file, 1600)} srcSet={`${fullImage(photo.file, 900)} 900w, ${fullImage(photo.file, 1600)} 1600w`} sizes="(max-width: 700px) 100vw, 80vw" alt={photo.alt} width={photo.width} height={photo.height} />
-        <figcaption><span>{photo.alt}</span>{hasSiblings && <span className="lightbox-count">{index + 1} / {photos.length}</span>}</figcaption>
+        {hasSiblings && <p className="lightbox-count">{index + 1} / {photos.length}</p>}
       </figure>
       <button type="button" className="lightbox-button lightbox-close" onClick={onClose} aria-label={labels.close}><X size={22} aria-hidden="true" /></button>
       {hasSiblings && <>
